@@ -8,9 +8,12 @@
     "solana-mcp": "./build/index.js"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node build/index.js",
-    "dev": "tsx watch src/index.ts"
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir build --target bun",
+    "build:http": "bun build src/http-server.ts --outdir build --target node --outfile http-server.js",
+    "dev": "bun --watch src/index.ts",
+    "start:http": "bun run src/http-server.ts",
+    "dev:http": "bun --watch src/http-server.ts"
   },
   "files": [
     "build"
