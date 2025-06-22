@@ -2,7 +2,7 @@
   "name": "solana-mcp",
   "version": "1.0.0",
   "description": "A Model Context Protocol server for interacting with the Solana blockchain, powered by the Solana Agent Kit (https://github.com/sendaifun/solana-agent-kit)",
-  "main": "build/index.js",
+  "module": "src/index.ts",
   "type": "module",
   "bin": {
     "solana-mcp": "./build/index.js"
@@ -30,6 +30,9 @@
   ],
   "author": "sendaifun",
   "license": "MIT",
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
   "dependencies": {
     "@big-whale-labs/modelcontextprotocol-sdk": "^1.12.0",
     "@modelcontextprotocol/sdk": "^1.11.4",
