@@ -73,7 +73,7 @@ export class PrivyBaseWallet implements BaseWallet {
       transaction: transaction,
     })
 
-    return transaction as T
+    return result.signedTransaction as T
   }
 
   async signAllTransactions<T extends Transaction | VersionedTransaction>(
