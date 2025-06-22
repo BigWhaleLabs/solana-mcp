@@ -1,8 +1,5 @@
 [variables]
 NODE_ENV = "production"
 
-[phases.install]
-cmd = "bun install --ignore-scripts"
-
 [start]
 cmd = "bun start:http"
