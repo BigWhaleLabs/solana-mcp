@@ -1,14 +1,13 @@
-import express, { type Request, type Response } from 'express'
+import express from 'express'
 import morgan from 'morgan'
 import { randomUUID } from 'node:crypto'
-import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
-import { isInitializeRequest } from '@modelcontextprotocol/sdk/types.js'
-import cors from 'cors'
+import { StreamableHTTPServerTransport } from '@big-whale-labs/modelcontextprotocol-sdk/server/streamableHttp.js'
+import { isInitializeRequest } from '@big-whale-labs/modelcontextprotocol-sdk/types.js'
 import startServer from './server.js'
+import getAvailableActions from './getAvailableActions.js'
 
 const app = express()
 app.use(express.json())
-app.use(cors())
 
 // Add morgan logging with custom format including session ID
 morgan.token(
@@ -29,7 +28,7 @@ app.use(
 const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {}
 
 // Handle POST requests for client-to-server communication
-app.post('/mcp', async (req: Request, res: Response) => {
+app.post('/mcp', async (req, res) => {
   // Check for existing session ID
   const sessionId = req.headers['mcp-session-id'] as string | undefined
   let transport: StreamableHTTPServerTransport
@@ -58,8 +57,10 @@ app.post('/mcp', async (req: Request, res: Response) => {
       }
     }
 
-    // Create the MCP server and connect it to this transport
-    const server = await startServer()
+    // Use the existing server setup from server.js
+    const server = await startServer(getAvailableActions())
+
+    // Connect to the MCP server
     await server.connect(transport)
   } else {
     // Invalid request
@@ -75,7 +76,7 @@ app.post('/mcp', async (req: Request, res: Response) => {
     return
   }
 
-  // Handle the request using the transport
+  // Handle the request
   console.log(
     `[Transport] Handling request for session: ${
       transport.sessionId || 'unknown'
@@ -84,7 +85,7 @@ app.post('/mcp', async (req: Request, res: Response) => {
   await transport.handleRequest(req, res, req.body)
 })
 
-// Reusable handler for GET requests
+// Reusable handler for GET and DELETE requests
 const handleSessionRequest = async (
   req: express.Request,
   res: express.Response
@@ -101,17 +102,12 @@ const handleSessionRequest = async (
   await transport.handleRequest(req, res)
 }
 
-// Handle GET requests for server-to-client notifications
+// Handle GET requests for server-to-client notifications via SSE
 app.get('/mcp', handleSessionRequest)
 
-// Start the HTTP server
-export async function startHttpServer(port: number = 3000) {
-  app.listen(port, () => {
-    console.error(`Solana MCP HTTP Server running on port ${port}`)
-    console.error('Available endpoints:')
-    console.error('  POST /mcp - MCP requests')
-    console.error('  GET /mcp - Server notifications')
-  })
+// // Handle DELETE requests for session termination
+// app.delete('/mcp', handleSessionRequest)
 
-  return app
-}
+app.listen(3000, () => {
+  console.log('MCP HTTP Server running on port 3000')
+})

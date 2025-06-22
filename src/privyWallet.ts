@@ -7,7 +7,7 @@ import {
 } from '@solana/web3.js'
 import { PrivyClient } from '@privy-io/server-auth'
 import type { SolanaCaip2ChainId } from '@privy-io/server-auth'
-import { BaseWallet } from 'solana-agent-kit'
+import { BaseWallet, isVersionedTransaction } from 'solana-agent-kit'
 
 export class PrivyBaseWallet implements BaseWallet {
   readonly publicKey: PublicKey
@@ -49,20 +49,42 @@ export class PrivyBaseWallet implements BaseWallet {
     this.caip2 = networkMap[network]
   }
 
+  // //  async signTransaction(transaction) {
+  //     console.log('okay')
+  //     if (isVersionedTransaction(transaction)) {
+  //       transaction.sign([this.payer]);
+  //     } else {
+  //       transaction.partialSign(this.payer);
+  //     }
+  //     return transaction;
+  //   }
+
   async signTransaction<T extends Transaction | VersionedTransaction>(
     transaction: T
   ): Promise<T> {
+    console.log('signing transaction with Privy wallet:', {
+      walletId: this.walletId,
+      caip2: this.caip2,
+      transaction: transaction,
+    })
+
     const result = await this.privyClient.walletApi.solana.signTransaction({
       walletId: this.walletId,
       transaction: transaction,
     })
 
-    return result.signedTransaction as T
+    return transaction as T
   }
 
   async signAllTransactions<T extends Transaction | VersionedTransaction>(
     transactions: T[]
   ): Promise<T[]> {
+    console.log('signing all transactions with Privy wallet:', {
+      walletId: this.walletId,
+      caip2: this.caip2,
+      transactions: transactions,
+    })
+
     const signedTransactions: T[] = []
 
     for (const transaction of transactions) {
@@ -76,6 +98,12 @@ export class PrivyBaseWallet implements BaseWallet {
   async sendTransaction<T extends Transaction | VersionedTransaction>(
     transaction: T
   ): Promise<string> {
+    console.log('sending transaction with Privy wallet:', {
+      walletId: this.walletId,
+      caip2: this.caip2,
+      transaction: transaction,
+    })
+
     const result =
       await this.privyClient.walletApi.solana.signAndSendTransaction({
         walletId: this.walletId,
@@ -90,6 +118,12 @@ export class PrivyBaseWallet implements BaseWallet {
     transaction: T,
     options?: SendOptions
   ): Promise<{ signature: TransactionSignature }> {
+    console.log('signing and sending transaction with Privy wallet:', {
+      walletId: this.walletId,
+      caip2: this.caip2,
+      transaction: transaction,
+    })
+
     const result =
       await this.privyClient.walletApi.solana.signAndSendTransaction({
         walletId: this.walletId,
@@ -101,6 +135,12 @@ export class PrivyBaseWallet implements BaseWallet {
   }
 
   async signMessage(message: Uint8Array): Promise<Uint8Array> {
+    console.log('signing message with Privy wallet:', {
+      walletId: this.walletId,
+      caip2: this.caip2,
+      message: message,
+    })
+
     const messageString = Buffer.from(message).toString('utf8')
 
     const result = await this.privyClient.walletApi.solana.signMessage({
