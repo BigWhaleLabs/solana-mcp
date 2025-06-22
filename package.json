@@ -41,7 +41,8 @@
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
     "morgan": "^1.10.0",
-    "solana-agent-kit": "^2.0.8"
+    "solana-agent-kit": "^2.0.8",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
