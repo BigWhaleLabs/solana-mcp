@@ -1,5 +1,8 @@
 [variables]
 NODE_ENV = "production"
 
+[phases.setup]
+nixPkgs = ["nodejs_22", "bun", "python3", "gcc", "gnumake", "pkg-config", "libudev-dev"]
+
 [start]
 cmd = "bun start:http"
