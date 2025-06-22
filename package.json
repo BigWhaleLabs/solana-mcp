@@ -65,6 +65,10 @@
     "bun": ">=1.2.9"
   },
   "overrides": {
-    "usb": "npm:noop-package@1.0.0"
+    "usb": "npm:noop-package@1.0.0",
+    "@coral-xyz/anchor": "^0.30.0"
+  },
+  "resolutions": {
+    "@coral-xyz/anchor": "^0.30.0"
   }
 }
