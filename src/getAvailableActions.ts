@@ -1,7 +1,7 @@
 import { SolanaAgentKit, KeypairWallet, type Action } from 'solana-agent-kit'
 import { Keypair } from '@solana/web3.js'
 import bs58 from 'bs58'
-import TokenPlugin from '@solana-agent-kit/plugin-token'
+import TokenPlugin from '@big-whale-labs/solana-agent-kit-plugin-token'
 import NFTPlugin from '@solana-agent-kit/plugin-nft'
 import DefiPlugin from '@solana-agent-kit/plugin-defi'
 import MiscPlugin from '@solana-agent-kit/plugin-misc'
@@ -19,6 +19,7 @@ export default function getAvailableActions() {
 
   const agent = new SolanaAgentKit(keypairWallet, keypairWallet.rpcUrl, {
     PINATA_JWT: process.env.PINATA_JWT,
+    PINATA_GATEWAY: process.env.PINATA_GATEWAY,
   })
     .use(TokenPlugin)
     .use(NFTPlugin)

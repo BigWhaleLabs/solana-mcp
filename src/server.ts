@@ -4,7 +4,7 @@ import { z } from 'zod'
 import extractPrivyHeaders from './extractPrivyHeaders.js'
 import { Keypair, PublicKey } from '@solana/web3.js'
 import { PrivyBaseWallet } from './privyWallet.js'
-import TokenPlugin from '@solana-agent-kit/plugin-token'
+import TokenPlugin from '@big-whale-labs/solana-agent-kit-plugin-token'
 import NFTPlugin from '@solana-agent-kit/plugin-nft'
 import DefiPlugin from '@solana-agent-kit/plugin-defi'
 import MiscPlugin from '@solana-agent-kit/plugin-misc'
@@ -91,6 +91,7 @@ async function startServer(actions: Record<string, Action>) {
               process.env.RPC_URL as string,
               {
                 PINATA_JWT: process.env.PINATA_JWT,
+                PINATA_GATEWAY: process.env.PINATA_GATEWAY,
               }
             )
               .use(TokenPlugin)
