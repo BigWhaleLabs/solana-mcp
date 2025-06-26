@@ -89,7 +89,9 @@ async function startServer(actions: Record<string, Action>) {
             const solanaAgentKit = new SolanaAgentKit(
               privyWallet,
               process.env.RPC_URL as string,
-              {}
+              {
+                PINATA_JWT: process.env.PINATA_JWT,
+              }
             )
               .use(TokenPlugin)
               .use(NFTPlugin)

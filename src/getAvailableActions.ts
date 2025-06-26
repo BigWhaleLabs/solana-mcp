@@ -17,7 +17,9 @@ export default function getAvailableActions() {
     process.env.RPC_URL as string
   )
 
-  const agent = new SolanaAgentKit(keypairWallet, keypairWallet.rpcUrl, {})
+  const agent = new SolanaAgentKit(keypairWallet, keypairWallet.rpcUrl, {
+    PINATA_JWT: process.env.PINATA_JWT,
+  })
     .use(TokenPlugin)
     .use(NFTPlugin)
     .use(DefiPlugin)
