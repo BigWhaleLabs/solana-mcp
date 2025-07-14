@@ -5,7 +5,7 @@
       "name": "solana-mcp",
       "dependencies": {
         "@big-whale-labs/modelcontextprotocol-sdk": "^1.12.0",
-        "@big-whale-labs/solana-agent-kit-plugin-token": "^3.0.9",
+        "@big-whale-labs/solana-agent-kit-plugin-token": "^3.0.10",
         "@modelcontextprotocol/sdk": "^1.11.4",
         "@privy-io/server-auth": "^1.27.4",
         "@solana-agent-kit/adapter-mcp": "^2.0.6",
@@ -72,7 +72,7 @@
 
     "@big-whale-labs/modelcontextprotocol-sdk": ["@big-whale-labs/modelcontextprotocol-sdk@1.12.0", "", { "dependencies": { "ajv": "^6.12.6", "content-type": "^1.0.5", "cors": "^2.8.5", "cross-spawn": "^7.0.5", "eventsource": "^3.0.2", "express": "^5.0.1", "express-rate-limit": "^7.5.0", "pkce-challenge": "^5.0.0", "raw-body": "^3.0.0", "zod": "^3.23.8", "zod-to-json-schema": "^3.24.1" } }, "sha512-YS4XgCsp/sfkSmn8wAmXQdtEUufVaBfHa4LJhUCv+jKq+PLCPFanGZ+AvUc2Mp97Pyct39r7grxCQztphj7RuA=="],
 
-    "@big-whale-labs/solana-agent-kit-plugin-token": ["@big-whale-labs/solana-agent-kit-plugin-token@3.0.9", "", { "dependencies": { "@lightprotocol/compressed-token": "^0.20.0", "@lightprotocol/stateless.js": "^0.20.0", "@mayanfinance/swap-sdk": "^10.0.0", "@metaplex-foundation/digital-asset-standard-api": "^1.0.4", "@metaplex-foundation/mpl-core": "^1.2.0", "@metaplex-foundation/mpl-token-metadata": "^3.3.0", "@metaplex-foundation/mpl-toolbox": "^0.9.4", "@metaplex-foundation/umi": "^1.0.0", "@metaplex-foundation/umi-bundle-defaults": "^1.0.0", "@metaplex-foundation/umi-web3js-adapters": "^1.0.0", "@openzeppelin/contracts": "^5.2.0", "@pump-fun/pump-sdk": "^1.3.8", "@solana/codecs": "^2.1.0", "@solana/spl-token": "^0.4.9", "@solutiofi/sdk": "^1.0.2", "@types/bn.js": "^5.1.6", "bn.js": "^5.2.1", "ethers": "^6.13.5", "pinata": "^2.4.3", "redaxios": "^0.5.1", "rpc-websockets": "^10.0.0", "solana-agent-kit": "2.0.7", "zod": "^3.24.1" }, "peerDependencies": { "@solana/web3.js": "^1.98.2" } }, "sha512-CnaFBpEsnN3HDBAz1MjAjw42G8d+RYDg9Dgo2bN9Ne8JfmwLtduJQdCU5ruuGwdffuO9THgDWG4XUoS/+W+Sjg=="],
+    "@big-whale-labs/solana-agent-kit-plugin-token": ["@big-whale-labs/solana-agent-kit-plugin-token@3.0.10", "", { "dependencies": { "@lightprotocol/compressed-token": "^0.20.0", "@lightprotocol/stateless.js": "^0.20.0", "@mayanfinance/swap-sdk": "^10.0.0", "@metaplex-foundation/digital-asset-standard-api": "^1.0.4", "@metaplex-foundation/mpl-core": "^1.2.0", "@metaplex-foundation/mpl-token-metadata": "^3.3.0", "@metaplex-foundation/mpl-toolbox": "^0.9.4", "@metaplex-foundation/umi": "^1.0.0", "@metaplex-foundation/umi-bundle-defaults": "^1.0.0", "@metaplex-foundation/umi-web3js-adapters": "^1.0.0", "@openzeppelin/contracts": "^5.2.0", "@pump-fun/pump-sdk": "^1.3.8", "@solana/codecs": "^2.1.0", "@solana/spl-token": "^0.4.9", "@solutiofi/sdk": "^1.0.2", "@types/bn.js": "^5.1.6", "bn.js": "^5.2.1", "ethers": "^6.13.5", "pinata": "^2.4.3", "redaxios": "^0.5.1", "rpc-websockets": "^10.0.0", "solana-agent-kit": "2.0.7", "zod": "^3.24.1" }, "peerDependencies": { "@solana/web3.js": "^1.98.2" } }, "sha512-If+sOUQeQnj+fmK2cOvMf7dcwy0NsajJTGZ84Sz7RQEVBPlnvvSynEtjdYUcgFNY02rZOcwtJxJxH1sA4ZWUQg=="],
 
     "@bonfida/sns-records": ["@bonfida/sns-records@0.0.1", "", { "dependencies": { "borsh": "1.0.0", "bs58": "5.0.0", "buffer": "^6.0.3" }, "peerDependencies": { "@solana/web3.js": "^1.87.3" } }, "sha512-i28w9+BMFufhhpmLQCNx1CKKXTsEn+5RT18VFpPqdGO3sqaYlnUWC1m3wDpOvlzGk498dljgRpRo5wmcsnuEMg=="],
 
