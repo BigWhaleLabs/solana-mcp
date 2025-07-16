@@ -2,7 +2,7 @@
 NODE_ENV = "production"
 
 [phases.install]
-cmd = "bun install --frozen-lockfile"
+cmd = "bun install --production"
 
 [start]
 cmd = "bun start"
