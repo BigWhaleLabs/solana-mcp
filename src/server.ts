@@ -95,10 +95,7 @@ async function startServer(actions: Record<string, Action>) {
               }
             )
               .use(TokenPlugin)
-              .use(NFTPlugin)
               .use(DefiPlugin)
-              .use(MiscPlugin)
-              .use(BlinksPlugin)
 
             console.log('params', params)
 
