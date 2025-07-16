@@ -22,10 +22,7 @@ export default function getAvailableActions() {
     PINATA_GATEWAY: process.env.PINATA_GATEWAY,
   })
     .use(TokenPlugin)
-    .use(NFTPlugin)
     .use(DefiPlugin)
-    .use(MiscPlugin)
-    .use(BlinksPlugin)
 
   const mcp_actions: Record<string, Action> = {}
 
