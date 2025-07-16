@@ -36,6 +36,7 @@
     "@big-whale-labs/solana-agent-kit-plugin-token": "^4.0.10",
     "@modelcontextprotocol/sdk": "^1.11.4",
     "@privy-io/server-auth": "1.27.4",
+    "@pump-fun/pump-sdk": "^1.4.3",
     "@solana-agent-kit/adapter-mcp": "^2.0.6",
     "@solana-agent-kit/plugin-blinks": "^2.0.5",
     "@solana-agent-kit/plugin-defi": "^2.0.6",
@@ -64,6 +65,9 @@
     "bun": ">=1.2.9"
   },
   "overrides": {
-    "usb": "npm:noop-package@1.0.0"
+    "usb": "npm:noop-package@1.0.0",
+    "@pump-fun/pump-swap-sdk": "0.0.1-beta.36"  },
+  "resolutions": {
+    "@pump-fun/pump-swap-sdk": "0.0.1-beta.36"
   }
 }
