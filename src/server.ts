@@ -95,7 +95,7 @@ async function startServer(actions: Record<string, Action>) {
               }
             )
               .use(TokenPlugin)
-              .use(DefiPlugin)
+              // .use(DefiPlugin)
 
             console.log('params', params)
 
